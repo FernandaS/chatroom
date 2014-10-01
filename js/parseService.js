@@ -1,6 +1,28 @@
 var app = angular.module('twitterClone');
 
 app.service('parseService', function($http, $q){
+
+
+this.getData = function(){
+  return $http({
+    method: "GET",
+    url: "https://api.parse.com/1/classes/chat?order=-createdAt"
+  });
+};
+
+
+
+this.postData = function(message){
+  return $http({
+    method: "POST",
+    data: {text: message},
+    url: 'https://api.parse.com/1/classes/chat'
+    
+  })
+}
+
+
+
   //Here you'll need to create two methods. One called postData and the other called getData.
 
 
